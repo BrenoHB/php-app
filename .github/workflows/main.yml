@@ -44,7 +44,7 @@ jobs:
           cd php-app
           cat deployment.yaml
           pwd
-          sed -i "s+brenobusnello/phpapp.*+BrenoHB/phpapp:${{github.sha}}+g" deployment.yaml
+          sed -i "s+brenobusnello/phpapp.*+brenobusnello/phpapp:${{github.sha}}+g" deployment.yaml
           cat deployment.yaml
           git add .
           git commit -m 'Update Deployment Image'
