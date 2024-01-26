@@ -21,7 +21,7 @@ RUN apk --no-cache add \
         libzip-dev \
     && rm -rf /tmp/*
 
-
+COPY src /var/www/html
 RUN apk --no-cache add nginx
 COPY nginx.conf /etc/nginx/nginx.conf
 COPY . .
