@@ -42,7 +42,7 @@ jobs:
           git config user.name ${{secrets.GH_NAME}}
           pwd
           cd php-app
-          cat src/deployment.yaml
+          cat deployment.yaml
           pwd
           sed -i "s+brenobusnello/phpapp.*+brenobusnello/phpapp:${{github.sha}}+g" deployment.yaml
           cat deployment.yaml
