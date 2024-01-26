@@ -2,7 +2,6 @@ FROM php:7.4-fpm-alpine
 
 WORKDIR /var/www/html
 
-# Instalação de dependências e extensões PHP
 RUN apk --no-cache add \
         freetype \
         libjpeg-turbo \
@@ -21,3 +20,11 @@ RUN apk --no-cache add \
         libpng-dev \
         libzip-dev \
     && rm -rf /tmp/*
+
+
+RUN apk --no-cache add nginx
+COPY nginx.conf /etc/nginx/nginx.conf
+COPY . .
+RUN rm -rf /tmp/* /var/cache/apk/*
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
