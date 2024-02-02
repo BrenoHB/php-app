@@ -1,6 +1,6 @@
 FROM php:7.4-fpm-alpine
 
-WORKDIR /var/www/html/
+WORKDIR /var/www
 
 RUN apk --no-cache add \
         freetype \
@@ -22,7 +22,7 @@ RUN apk --no-cache add \
         libzip-dev \
     && rm -rf /tmp/*
 
-COPY src/index.php /var/www/html
+COPY src/index.php /var/www
 COPY nginx.conf /etc/nginx/nginx.conf
 COPY . .
 RUN rm -rf /tmp/* /var/cache/apk/*
